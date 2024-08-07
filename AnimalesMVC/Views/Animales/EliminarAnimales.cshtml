@@ -11,9 +11,9 @@
     @Html.AntiForgeryToken()
 
     <div>
-        @Html.LabelFor(m => m.NombreAnimal)
-        @Html.TextBoxFor(m => m.NombreAnimal, new { type = "text", required = "required" })
-        @Html.ValidationMessageFor(m => m.NombreAnimal)
+        @Html.LabelFor(m => m.IdAnimal)
+        @Html.DropDownListFor(m => m.IdAnimal, (SelectList)ViewBag.ListAnimal, "Seleccione un tipo de animal", new { required = "required" })
+        @Html.ValidationMessageFor(m => m.IdAnimal)
     </div>
 
     <div>

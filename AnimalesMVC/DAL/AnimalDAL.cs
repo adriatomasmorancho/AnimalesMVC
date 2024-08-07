@@ -68,7 +68,7 @@ namespace AnimalesMVC.DAL
 
         }
 
-        public bool DeleteAnimalByName(string nombreAnimal)
+        public bool DeleteAnimalByName(int idAnimal)
         {
             bool result = false;
 
@@ -76,9 +76,9 @@ namespace AnimalesMVC.DAL
             {
                 connection.Open();
 
-                string query = "DELETE FROM Animal WHERE NombreAnimal = @NombreAnimal";
+                string query = "DELETE FROM Animal WHERE IdAnimal = @IdAnimal";
                 SqlCommand command = new SqlCommand(query, connection.GetConnection());
-                command.Parameters.AddWithValue("@NombreAnimal", nombreAnimal);
+                command.Parameters.AddWithValue("@IdAnimal", idAnimal);
 
                 int rowsAffected = command.ExecuteNonQuery();
 

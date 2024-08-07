@@ -63,9 +63,17 @@ namespace AnimalesMVC.Controllers
         }
 
 
+
+
         [HttpGet]
         public ActionResult EliminarAnimales() 
-        { 
+        {
+            animalDal = new AnimalDAL();
+
+            List<Animal> listAnimal = animalDal.SelectAll();
+
+            ViewBag.ListAnimal = new SelectList(listAnimal, "IdAnimal", "NombreAnimal");
+
             return View(); 
         }
 
@@ -77,7 +85,7 @@ namespace AnimalesMVC.Controllers
 
             if (ModelState.IsValid)
             {
-                animalDal.DeleteAnimalByName(model.NombreAnimal);
+                animalDal.DeleteAnimalByName(model.IdAnimal);
 
                 return RedirectToAction("IndexAnimales", "Animales");
             }
