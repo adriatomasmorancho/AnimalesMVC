@@ -68,6 +68,34 @@ namespace AnimalesMVC.DAL
 
         }
 
+        public bool DeleteAnimalByName(string nombreAnimal)
+        {
+            bool result = false;
+
+            try
+            {
+                connection.Open();
+
+                string query = "DELETE FROM Animal WHERE NombreAnimal = @NombreAnimal";
+                SqlCommand command = new SqlCommand(query, connection.GetConnection());
+                command.Parameters.AddWithValue("@NombreAnimal", nombreAnimal);
+
+                int rowsAffected = command.ExecuteNonQuery();
+
+                result = rowsAffected > 0;
+            }
+            catch (Exception ex)
+            { 
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return result;
+        }
+
     }
 
 

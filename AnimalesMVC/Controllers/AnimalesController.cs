@@ -61,5 +61,31 @@ namespace AnimalesMVC.Controllers
             }
             return View(model);
         }
+
+
+        [HttpGet]
+        public ActionResult EliminarAnimales() 
+        { 
+            return View(); 
+        }
+
+
+        [HttpPost]
+        public ActionResult EliminarAnimales(Animal model)
+        {
+            animalDal = new AnimalDAL();
+
+            if (ModelState.IsValid)
+            {
+                animalDal.DeleteAnimalByName(model.NombreAnimal);
+
+                return RedirectToAction("IndexAnimales", "Animales");
+            }
+
+            return View(model);
+        }
+
+
+
     }
 }

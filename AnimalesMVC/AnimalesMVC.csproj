@@ -185,6 +185,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Animales\IndexAnimales.cshtml" />
     <Content Include="Views\Animales\FormularioAnimales.cshtml" />
+    <Content Include="Views\Animales\EliminarAnimales.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
